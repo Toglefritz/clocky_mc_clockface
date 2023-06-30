@@ -11,6 +11,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  # Contains code to deal with internationalized/localized messages
+  intl: any
   # A wrapper around InheritedWidget to make them easier to use and more reusable.
   provider: ^6.0.5
 
@@ -21,3 +25,4 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
