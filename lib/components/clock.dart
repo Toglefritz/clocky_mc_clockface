@@ -13,36 +13,30 @@ enum ClockType {
   analog,
 }
 
-/// A controller class designed for driving a clock interface in a Flutter application.
+
+/// A versatile clock widget for displaying time in a Flutter application.
 ///
-/// The [ClockController] is responsible for managing the current time and facilitating the rendering of an analog
-/// clock. Additionally, it features an alarm clock functionality, enabling the setting of an alarm time and notifying
-/// listeners when the alarm time is reached.
+/// The [Clock] widget can be used to display time in either digital or analog format.
+/// It automatically updates every second to show the current time.
 ///
-/// The clock UI can be rendered in multiple different ways, depending upon the value of [clockType].
-///
-/// The class listens to the 'ticks' of the clock every second and updates the current time.
+/// The type of clock (analog or digital) can be specified using the [clockType] property.
 ///
 /// Example:
 /// ```dart
-/// ClockController clockController = ClockController(type: ClockType.digital);
-/// clockController.addListener(() {
-///   // Perform actions each second as the clock ticks, like updating the UI
-/// });
-///
-/// // Set the alarm to trigger at a specific DateTime
-/// clockController.setAlarm(DateTime.now().add(Duration(minutes: 10)));
-///
-/// // Listen for when the alarm is triggered
-/// clockController.alarmTriggered.listen((_) {
-///   print('Alarm Triggered!');
-/// });
+/// Clock(clockType: ClockType.digital)
 /// ```
 ///
-/// See also:
+/// Example:
+/// ```dart
+/// Clock(clockType: ClockType.analog)
+/// ```
 ///
-///  * [DateTime], which the `ClockController` uses to represent the current time and the alarm time.
-///  * [StreamController], which is used for managing the alarm triggered event.
+/// The [ClockType] enum is used to specify the type of clock:
+///   - `ClockType.digital` displays the time in digital format.
+///   - `ClockType.analog` displays the time in analog format, complete with hour,
+///     minute, and second hands, and includes the numbers 12, 3, 6, and 9 in their
+///     appropriate positions around the clock face with small lines for each
+///     5-minute increment between these values.
 class Clock extends StatelessWidget {
   const Clock({
     super.key,
