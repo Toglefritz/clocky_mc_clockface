@@ -1,3 +1,5 @@
 {
-  "app_title": "Clocky McClockface"
+  "analog": "Analog",
+  "appTitle": "Clocky McClockface",
+  "digital": "Digital"
 }

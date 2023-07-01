@@ -88,7 +88,7 @@ class Clock extends StatelessWidget {
           // Digital clock
           if (clockType == ClockType.digital) {
             return Container(
-              width: 400,
+              width: 450,
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 2.0,
