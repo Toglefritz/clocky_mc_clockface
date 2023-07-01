@@ -11,7 +11,7 @@ class ClockyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Clocky McClockface',
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -24,6 +24,8 @@ class ClockyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.pink,
         ),
+        primaryColorDark: Colors.black,
+        primaryColorLight: Colors.white,
         useMaterial3: true,
       ),
       home: const ClockTypesRoute(),

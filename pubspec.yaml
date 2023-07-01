@@ -13,9 +13,13 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  # Used to render analog clock UIs
+  analog_clock: ^0.1.0
+  # A Flutter package to use fonts from fonts.google.com
+  google_fonts: ^5.1.0
   # Contains code to deal with internationalized/localized messages
   intl: any
-  # A wrapper around InheritedWidget to make them easier to use and more reusable.
+  # A wrapper around InheritedWidget to make them easier to use and more reusable
   provider: ^6.0.5
 
 dev_dependencies:
