@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../components/clock.dart';
+import '../../services/clock/models/clock_type.dart';
 import 'clock_types_controller.dart';
 
 /// A view for the [ClockTypesRoute] presenting a [TabBar] allowing the choice between a digital and an analog
