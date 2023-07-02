@@ -82,7 +82,7 @@ class Clock extends StatelessWidget {
           // Digital clock
           if (clockType == ClockType.digital) {
             return Container(
-              width: 450,
+              width: 350,
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 2.0,
@@ -96,7 +96,7 @@ class Clock extends StatelessWidget {
                 child: Text(
                   '${hours.toZeroPaddedString()}:${minutes.toZeroPaddedString()}:${seconds.toZeroPaddedString()}',
                   style: GoogleFonts.orbitron().copyWith(
-                    fontSize: 64,
+                    fontSize: 56,
                   ),
                   textAlign: TextAlign.center,
                 ),
