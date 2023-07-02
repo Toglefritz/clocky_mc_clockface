@@ -80,6 +80,9 @@ class ClockController with ChangeNotifier {
     final DateTime now = DateTime.now();
     int hours = now.hour;
 
+    // Set the meridiem before switching to a 12-hour time format
+    _meridiem = hours < 12 ? Meridiem.am : Meridiem.pm;
+
     // Adjusting hours for 12-hour format
     if (hours > 12) {
       hours = hours - 12;
@@ -87,20 +90,20 @@ class ClockController with ChangeNotifier {
       hours = 12;
     }
 
-    _meridiem = hours < 12 ? Meridiem.am : Meridiem.pm;
-
     return DateTime(now.year, now.month, now.day, hours, now.minute, now.second);
   }
 
   /// Called every second.
   void _onTick() {
-    _currentTime = DateTime.now();
+    _currentTime = _getCurrentTime();
+
     // Check if the current time has reached the alarm time
-    if (_alarmTime != null && _currentTime.isAfter(_alarmTime!) && !_isAlarmTriggered) {
+    if (_alarmTime != null && DateTime.now().isAfter(_alarmTime!) && !_isAlarmTriggered) {
       _isAlarmTriggered = true;
       // Notify listeners that the alarm has triggered
       notifyListeners();
     }
+
     // Notify listeners for the time update
     notifyListeners();
   }
