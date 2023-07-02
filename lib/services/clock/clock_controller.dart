@@ -41,6 +41,12 @@ class ClockController with ChangeNotifier {
   /// A [DateTime] when the alarm will expire and alert the user.
   DateTime? _alarmTime;
 
+  /// Method to set the alarm time.
+  set alarmTime(DateTime alarmTime) {
+    _alarmTime = alarmTime;
+    _isAlarmTriggered = false;
+  }
+
   /// A [Timer] used to update the values in this controller periodically.
   late Timer _timer;
 
@@ -71,7 +77,7 @@ class ClockController with ChangeNotifier {
   /// and returns a [DateTime] object. The hour component of the returned
   /// [DateTime] object will be in the range of 1 to 12 inclusive.
   DateTime _getCurrentTime() {
-    final DateTime  now = DateTime.now();
+    final DateTime now = DateTime.now();
     int hours = now.hour;
 
     // Adjusting hours for 12-hour format
@@ -84,12 +90,6 @@ class ClockController with ChangeNotifier {
     _meridiem = hours < 12 ? Meridiem.am : Meridiem.pm;
 
     return DateTime(now.year, now.month, now.day, hours, now.minute, now.second);
-  }
-
-  /// Method to set the alarm time.
-  void setAlarm(DateTime alarmTime) {
-    _alarmTime = alarmTime;
-    _isAlarmTriggered = false;
   }
 
   /// Called every second.
